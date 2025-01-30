@@ -1,0 +1,19 @@
+local npcs
+while task.wait() do
+  npcs = workspace.NPCFolders.EnemyFolder
+  for _, v in next, npcs:GetChildren() do
+    if not v:FindFirstChild("Torso") then continue end
+    
+    local torso = v.Torso
+    torso.Size = Vector3.new(40,40,40)
+    torso.Material = "Plastic"
+    torso.BrickColor = BrickColor.new("Really blue")
+    torso.Transparency = 0.7
+    torso.CanCollide = false
+
+    local weld = Instance.new("WeldConstraint")
+    weld.Part0 = torso
+    weld.Part1 = v.Torso
+    weld.Parent = torso
+  end
+end
