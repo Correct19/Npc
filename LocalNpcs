@@ -1,0 +1,14 @@
+local npcs
+while task.wait() do
+  npcs = workspace.NPCFolders.EnemyFolder
+  for _, v in next, npcs:GetChildren() do
+    if not v:FindFirstChild("HumanoidRootPart") then continue end
+    
+    local rootPart = v.HumanoidRootPart
+    rootPart.Size = Vector3.new(25,25,25)
+    rootPart.Material = "Plastic"
+    rootPart.BrickColor = BrickColor.new("Really yellow")
+    rootPart.Transparency = 0.9
+    rootPart.CanCollide = false 
+  end
+end
